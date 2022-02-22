@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "709803314070",
+    "firebase_url": "https://sampleapp-74029.firebaseio.com",
+    "project_id": "sampleapp-74029",
+    "storage_bucket": "sampleapp-74029.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:709803314070:android:84efef62a5c8237a1c6bb7",
+        "android_client_info": {
+          "package_name": "com.kaltech.First_FlutterApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "709803314070-q577kno2nlqobvis9qlll343dftsg762.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOWw2K4vtgsHT_xWqhNSsX-4MFmEq5kLw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "709803314070-q577kno2nlqobvis9qlll343dftsg762.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "709803314070-28eioijsaomgb1sdn8qbobvnsdrg4s07.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.kaltech.firstflutterapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

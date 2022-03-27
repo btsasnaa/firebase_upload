@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +28,7 @@ class _ImageUploadsState extends State<ImageUploads> {
     setState(() {
       if (pickedFile != null) {
         _photo = File(pickedFile.path);
-        uploadFile();
+        // uploadFile();
       } else {
         print('No image selected.');
       }
@@ -39,14 +41,28 @@ class _ImageUploadsState extends State<ImageUploads> {
     setState(() {
       if (pickedFile != null) {
         _photo = File(pickedFile.path);
-        uploadFile();
+        // uploadFile();
       } else {
         print('No image selected.');
       }
     });
   }
 
-  Future uploadFile() async {
+  // Future uploadFile() async {
+  //   if (_photo == null) return;
+  //   final fileName = basename(_photo!.path);
+  //   final destination = 'files/$fileName';
+
+  //   try {
+  //     final ref = firebase_storage.FirebaseStorage.instance
+  //         .ref(destination)
+  //         .child('file/');
+  //     await ref.putFile(_photo!);
+  //   } catch (e) {
+  //     print('uploadFile error occured');
+  //   }
+  // }
+  Future uploadFileLocal() async {
     if (_photo == null) return;
     final fileName = basename(_photo!.path);
     final destination = 'files/$fileName';
@@ -61,15 +77,36 @@ class _ImageUploadsState extends State<ImageUploads> {
     }
   }
 
+  // Future<bool> addImage(Map<String, String> body, String filepath) async {
+  Future<bool> addImage() async {
+    if (_photo == null) return false;
+
+    String addimageUrl = 'http://192.168.1.4:5000/api/v1/image/upload';
+    // String addimageUrl = 'http://127.0.0.1:5000/api/v1/image/upload';
+    Map<String, String> headers = {
+      'Content-Type': 'multipart/form-data',
+    };
+    var request = http.MultipartRequest('POST', Uri.parse(addimageUrl))
+      // ..fields.addAll(body)
+      ..headers.addAll(headers)
+      ..files.add(await http.MultipartFile.fromPath('image', _photo!.path));
+    var response = await request.send();
+    if (response.statusCode == 201) {
+      print("1");
+      return true;
+    } else {
+      print("2");
+      return false;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
       body: Column(
         children: <Widget>[
-          SizedBox(
-            height: 32,
-          ),
+          SizedBox(height: 32),
           Center(
             child: GestureDetector(
               onTap: () {
@@ -101,7 +138,35 @@ class _ImageUploadsState extends State<ImageUploads> {
                       ),
               ),
             ),
-          )
+          ),
+          SizedBox(height: 32),
+          GestureDetector(
+            onTap: () {
+              if (_photo == null) {
+                const snackBar = SnackBar(
+                  content: Text("Select an image"),
+                );
+                ScaffoldMessenger.of(context).showSnackBar(snackBar);
+              }
+              addImage();
+            },
+            child: Container(
+              alignment: Alignment.center,
+              height: 40,
+              width: 120,
+              decoration: BoxDecoration(
+                  color: Colors.blueAccent,
+                  borderRadius: BorderRadius.circular(20)),
+              child: Text(
+                "Upload",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );

@@ -29,6 +29,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  # image_picker: ^0.8.3+9
   image_picker: 
   firebase_core:
   cloud_firestore:
@@ -37,6 +38,26 @@ dependencies:
   firebase_storage:
   # image_picker: ^0.8.3+9
 
+  # Google Sign in
+  google_sign_in: ^5.0.3
+
+  # Google Icon
+  font_awesome_flutter: ^9.0.0
+
+  # State Management
+  provider: ^5.0.0
+  
+  # inset box shadow
+  flutter_inset_box_shadow: ^1.0.7
+
+  # grouped listview
+  grouped_list: ^4.2.0
+  # date format
+  intl: ^0.17.0
+
+  # MVC Pattern
+  mvc_pattern:
+  
   # firebase_core: ^0.7.0
   # firebase_analytics: ^7.0.1
   # firebase_auth: ^0.20.1

@@ -2,17 +2,17 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
-import './image_widget.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
+import 'image_widget.dart';
+
+class MyImagePicker extends StatefulWidget {
+  const MyImagePicker({Key? key}) : super(key: key);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MyImagePicker> createState() => _MyImagePickerState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyImagePickerState extends State<MyImagePicker> {
   File? image;
 
   Future pickImage(ImageSource source) async {
@@ -61,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ],
         ),
-      ),
+      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 

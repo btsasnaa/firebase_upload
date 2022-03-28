@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_upload/widget/logged_in_widget.dart';
-import 'package:firebase_upload/widget/sign_up_widget.dart';
+import 'package:firebase_upload/widget/google_login/logged_in_widget.dart';
+import 'package:firebase_upload/widget/google_login/sign_up_widget.dart';
 import 'package:flutter/material.dart';
 
 class GoogleSignIn extends StatefulWidget {

@@ -1,4 +1,4 @@
-import 'package:firebase_upload/provider/google_sign_in_provider.dart';
+import 'package:firebase_upload/provider/google_provider/google_sign_in_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';

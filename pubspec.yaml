@@ -57,6 +57,9 @@ dependencies:
 
   # MVC Pattern
   mvc_pattern:
+
+  # Validate Email
+  email_validator: ^2.0.1
   
   # firebase_core: ^0.7.0
   # firebase_analytics: ^7.0.1
